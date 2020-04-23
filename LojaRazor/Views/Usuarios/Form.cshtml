@@ -9,6 +9,7 @@
         @Html.TextBoxFor(usuario => usuario.Nome)
         @Html.ValidationMessageFor(usuario => usuario.Nome)
 
+
         @Html.LabelFor(u => u.Email, "Email:")
         @Html.TextBoxFor(u => u.Email)
         @Html.ValidationMessageFor(u => u.Email)
@@ -16,6 +17,17 @@
         @Html.LabelFor(u => u.Senha, "Senha:")
         @Html.PasswordFor(u => u.Senha)
         @Html.ValidationMessageFor(u => u.Senha)
+
+        <div class="control-group">
+            <label class="inline radio">
+                @Html.RadioButtonFor(u => u.Sexo, LojaRazor.Models.Sexo.Masculino)
+                Masculino
+            </label>
+            <label class="inline radio">
+                @Html.RadioButtonFor(u => u.Sexo, LojaRazor.Models.Sexo.Feminino)
+                Feminino
+            </label>
+        </div>
 
         @Html.LabelFor(u => u.DataDeNascimento)
         @Html.TextBoxFor(u => u.DataDeNascimento)
@@ -37,6 +49,10 @@
         @Html.TextBoxFor(u => u.CEP)
         @Html.ValidationMessageFor(u => u.CEP)
 
+        @Html.LabelFor(u => u.Estado, "Estado:")
+        @Html.DropDownListFor(u => u.Estado,
+  new SelectList(Enum.GetValues(typeof(LojaRazor.Models.Estado))))
+
         @Html.LabelFor(u => u.Observacoes, "Observações:")
         @Html.TextAreaFor(u => u.Observacoes)
         @Html.ValidationMessageFor(u => u.Observacoes)
@@ -47,4 +63,10 @@
     </div>
 
     <input type="submit" value="Cadastrar" class="btn btn-large" />
+}
+
+@section Scripts {
+    <script type="text/javascript" src="~/Scripts/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.unobtrusive.js"></script>
 }

@@ -31,5 +31,8 @@ namespace LojaRazor.Models
         public string Observacoes { get; set; }
 
         public bool RecebePromocoes { get; set; }
+        public Sexo Sexo { get; set; }
+
+        public Estado Estado { get; set; }
     }
 }
